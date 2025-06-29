@@ -296,13 +296,13 @@ Contributions are welcome! Please fork the repository, create a new branch, and 
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with LangGraph and LangChain
 - Powered by Google Gemini (FREE!)
 - Inspired by the need for efficient terminal automation across operating systems
 
-## 🆘 Support
+##  Support
 
 For issues and questions:
 - Check the logs in `terminal_agent.log`
