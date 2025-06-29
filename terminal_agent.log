@@ -1,0 +1,43 @@
+ 2025-06-29 17:26:44,414 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Honey\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\werkzeug\\utils.py', reloading
+2025-06-29 17:26:44,521 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Honey\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\werkzeug\\_internal.py', reloading
+2025-06-29 17:26:47,710 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 17:26:55,197 - app - INFO - PowerShell process initialized successfully
+2025-06-29 17:26:55,345 - app - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 17:26:55,369 - app - INFO - LangGraph agent compiled successfully
+2025-06-29 17:26:55,437 - werkzeug - WARNING -  * Debugger is active!
+2025-06-29 17:26:55,449 - werkzeug - INFO -  * Debugger PIN: 948-715-909
+2025-06-29 17:30:15,375 - werkzeug - INFO -  * Detected change in 'D:\\Github\\Terminal-Agent\\run.py', reloading
+2025-06-29 17:30:15,375 - werkzeug - INFO -  * Detected change in 'D:\\Github\\Terminal-Agent\\run.py', reloading
+2025-06-29 17:30:15,443 - werkzeug - INFO -  * Detected change in 'D:\\Github\\Terminal-Agent\\run.py', reloading
+2025-06-29 17:30:18,645 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 17:32:39,280 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 17:32:39,421 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 17:32:39,454 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 17:32:39,614 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.168:5000
+2025-06-29 17:32:39,618 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-29 17:32:39,671 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 17:32:45,512 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 17:32:45,650 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 17:32:45,671 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 17:32:45,745 - werkzeug - WARNING -  * Debugger is active!
+2025-06-29 17:32:45,758 - werkzeug - INFO -  * Debugger PIN: 948-715-909
+2025-06-29 17:32:46,524 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:46] "GET / HTTP/1.1" 200 -
+2025-06-29 17:32:46,885 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:46] "GET /static/css/terminal.css HTTP/1.1" 200 -
+2025-06-29 17:32:46,885 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:46] "GET /static/js/terminal.js HTTP/1.1" 200 -
+2025-06-29 17:32:46,960 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:32:47,007 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-29 17:32:54,459 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:54] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:32:54,475 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:32:54] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:33:01,561 - __main__ - INFO - Started streaming response for: List all runnig proccesses...
+2025-06-29 17:33:01,573 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:33:01] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 17:33:59,750 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:33:59] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:33:59,768 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:33:59] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:34:04,689 - __main__ - INFO - Started streaming response for: List all files in current directory...
+2025-06-29 17:34:04,694 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:34:04] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 17:34:23,491 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:34:23] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:34:23,513 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:34:23] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 17:34:26,639 - __main__ - INFO - Started streaming response for: What's my computer name?...
+2025-06-29 17:34:26,652 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:34:26] "POST /api/stream HTTP/1.1" 200 -

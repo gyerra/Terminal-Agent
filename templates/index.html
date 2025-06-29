@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Agent - Web Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/terminal.css') }}">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-title">
+                <span class="status-indicator" id="statusIndicator"></span>
+                Terminal Agent
+            </div>
+            <div class="terminal-controls">
+                <button class="control-btn close-btn" onclick="window.close()"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="terminal-output" id="terminalOutput">
+                <div class="message ai-message">
+                    Welcome to Terminal Agent! I'm your AI-powered terminal assistant. 
+                    I can help you execute PowerShell commands and manage your system. 
+                    Type your request below.
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <span class="prompt">PS></span>
+                <input 
+                    type="text" 
+                    class="command-input" 
+                    id="commandInput" 
+                    placeholder="Enter your command or request..."
+                    autocomplete="off"
+                >
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                    Send
+                </button>
+                <button class="clear-btn" onclick="clearHistory()">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/terminal.js') }}"></script>
+</body>
+</html> 
