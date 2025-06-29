@@ -41,3 +41,24 @@
 2025-06-29 17:34:23,513 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:34:23] "GET /api/status HTTP/1.1" 200 -
 2025-06-29 17:34:26,639 - __main__ - INFO - Started streaming response for: What's my computer name?...
 2025-06-29 17:34:26,652 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 17:34:26] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:06:46,143 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 18:06:46,267 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 18:06:46,279 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 18:06:46,379 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.168:5000
+2025-06-29 18:06:46,379 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-29 18:06:46,413 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 18:06:51,077 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 18:06:51,245 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 18:06:51,260 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 18:06:51,351 - werkzeug - WARNING -  * Debugger is active!
+2025-06-29 18:06:51,363 - werkzeug - INFO -  * Debugger PIN: 948-715-909
+2025-06-29 18:06:56,294 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:06:56] "GET / HTTP/1.1" 200 -
+2025-06-29 18:06:56,643 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:06:56] "[36mGET /static/css/terminal.css HTTP/1.1[0m" 304 -
+2025-06-29 18:06:56,649 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:06:56] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
+2025-06-29 18:06:56,752 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:06:56] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:07:03,448 - __main__ - INFO - Started streaming response for: whats my laptop name...
+2025-06-29 18:07:03,456 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:07:03] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:08:20,005 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:08:20] "GET /api/status HTTP/1.1" 200 -

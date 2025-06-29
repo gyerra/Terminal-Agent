@@ -4,6 +4,58 @@
 
 A powerful Terminal Agent built with Python, LangGraph, and LangChain, designed for seamless command execution across multiple operating systems. Available as both a **CLI application** and a **modern web interface** with real-time streaming.
 
+## 🛠️ Tech Stack
+
+### **Core Technologies**
+| Category | Technology | Version | Purpose |
+|----------|------------|---------|---------|
+| **Language** | Python | 3.8+ | Core programming language |
+| **Web Framework** | Flask | 3.0.0 | Lightweight web server and API |
+| **AI Framework** | LangGraph | 0.5.0 | Agent orchestration and workflow |
+| **AI Integration** | LangChain | 0.3.63 | LLM integration and tool binding |
+| **AI Model** | Google Gemini | 1.5 Flash | Natural language processing (FREE!) |
+| **Frontend** | HTML5/CSS3/JavaScript | - | Modern web interface |
+| **System Integration** | PowerShell | - | Windows command execution |
+| **Development** | Python-dotenv | 1.1.0 | Environment management |
+
+### **Key Dependencies**
+```python
+# Web Framework
+flask==3.0.0                    # Lightweight web server
+flask-cors==4.0.0              # Cross-origin resource sharing
+
+# AI/ML Stack
+langchain-google-genai==2.1.5  # Google Gemini integration
+langgraph==0.5.0               # AI agent framework
+langchain-core==0.3.63         # Core LangChain functionality
+
+# Utilities
+python-dotenv==1.1.0           # Environment variable management
+```
+
+### **Architecture Overview**
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Backend       │    │   AI Layer      │
+│   (Browser)     │◄──►│   (Flask)       │◄──►│   (Gemini)      │
+│                 │    │                 │    │                 │
+│ • HTML5/CSS3    │    │ • REST API      │    │ • LLM Model     │
+│ • JavaScript    │    │ • WebSockets    │    │ • LangGraph     │
+│ • Real-time     │    │ • CORS          │    │ • LangChain     │
+│ • Responsive    │    │ • Logging       │    │ • Tool Binding  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │   System Layer  │
+                       │                 │
+                       │ • PowerShell    │
+                       │ • Subprocess    │
+                       │ • File System   │
+                       │ • Network       │
+                       └─────────────────┘
+```
+
 ## 🌟 Features
 
 ### Core Capabilities
