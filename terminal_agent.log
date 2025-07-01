@@ -62,3 +62,75 @@
 2025-06-29 18:07:03,448 - __main__ - INFO - Started streaming response for: whats my laptop name...
 2025-06-29 18:07:03,456 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:07:03] "POST /api/stream HTTP/1.1" 200 -
 2025-06-29 18:08:20,005 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:08:20] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:23:08,668 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:23:08] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:23:08,710 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:23:08] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:23:31,958 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:23:31] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:24:29,696 - werkzeug - INFO -  * Detected change in 'D:\\Github\\Terminal-Agent\\terminal_controller.py', reloading
+2025-06-29 18:24:30,127 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Honey\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\subprocess.py', reloading
+2025-06-29 18:24:33,025 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 18:24:38,552 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 18:24:38,689 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 18:24:38,726 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 18:24:38,823 - werkzeug - WARNING -  * Debugger is active!
+2025-06-29 18:24:38,841 - werkzeug - INFO -  * Debugger PIN: 948-715-909
+2025-06-29 18:24:45,132 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:24:45] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:24:46,669 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:24:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:24:46,689 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:24:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:27:43,249 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:27:43] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:27:43,292 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:27:43] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:28:01,835 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:01] "GET / HTTP/1.1" 200 -
+2025-06-29 18:28:02,043 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:02] "[36mGET /static/css/terminal.css HTTP/1.1[0m" 304 -
+2025-06-29 18:28:02,164 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:02] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
+2025-06-29 18:28:02,497 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:02] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:28:15,511 - __main__ - INFO - Started streaming response for: what can you do with this device...
+2025-06-29 18:28:15,521 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:15] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:28:15,530 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Honey\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\langchain_google_genai\\chat_models.py', reloading
+2025-06-29 18:28:18,146 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 18:28:23,136 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 18:28:23,281 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 18:28:23,308 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 18:28:23,380 - werkzeug - WARNING -  * Debugger is active!
+2025-06-29 18:28:23,394 - werkzeug - INFO -  * Debugger PIN: 948-715-909
+2025-06-29 18:28:23,497 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:23] "GET / HTTP/1.1" 200 -
+2025-06-29 18:28:23,890 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:23] "[36mGET /static/css/terminal.css HTTP/1.1[0m" 304 -
+2025-06-29 18:28:23,896 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:23] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
+2025-06-29 18:28:24,222 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:28:24] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:29:54,154 - __main__ - INFO - Started streaming response for: what can you do eith device...
+2025-06-29 18:29:54,172 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:29:54] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:30:19,499 - __main__ - INFO - Started streaming response for: who are ypu exactl...
+2025-06-29 18:30:19,505 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:30:19] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:31:27,537 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:31:27] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:32:14,630 - __main__ - INFO - Started streaming response for: i hate you...
+2025-06-29 18:32:14,634 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:32:14] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:32:27,614 - __main__ - INFO - Started streaming response for: chatgpt is better than you...
+2025-06-29 18:32:27,618 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:32:27] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:32:39,259 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:32:39] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:33:46,240 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:33:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:34:24,126 - __main__ - INFO - Started streaming response for: create a folder names honey in my d drive...
+2025-06-29 18:34:24,128 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:34:24] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:34:36,926 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:34:36] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:34:43,959 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:34:43] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:34:44,539 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:34:44] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:37:19,306 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:37:19] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:37:37,158 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:37:37] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:38:15,561 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:15] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:38:26,496 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:26] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:38:26,845 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:26] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:38:29,680 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:29] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:38:29,989 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:29] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:38:38,220 - __main__ - INFO - Started streaming response for: create a folder names manju in my d drive...
+2025-06-29 18:38:38,224 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:38] "POST /api/stream HTTP/1.1" 200 -
+2025-06-29 18:38:44,877 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:38:44] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:39:00,684 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:39:00] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:39:00,999 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:39:00] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:39:18,377 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:39:18] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:39:38,623 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:39:38] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 18:40:26,341 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2025 18:40:26] "GET /api/status HTTP/1.1" 200 -
+2025-06-29 19:02:59,836 - werkzeug - INFO -  * Detected change in 'D:\\Github\\Terminal-Agent\\config.py', reloading
+2025-06-29 19:02:59,836 - werkzeug - INFO -  * Detected change in 'D:\\Github\\Terminal-Agent\\main.py', reloading
+2025-06-29 19:03:02,657 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-06-29 19:03:05,519 - __main__ - INFO - PowerShell process initialized successfully
+2025-06-29 19:03:05,540 - __main__ - INFO - Gemini LLM initialized with model: gemini-1.5-flash
+2025-06-29 19:03:05,556 - __main__ - INFO - LangGraph agent compiled successfully
+2025-06-29 19:03:05,571 - werkzeug - WARNING -  * Debugger is active!
+2025-06-29 19:03:05,571 - werkzeug - INFO -  * Debugger PIN: 948-715-909

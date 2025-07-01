@@ -139,29 +139,10 @@ python-dotenv==1.1.0           # Environment variable management
 
 ### Web Application Structure
 ```
-Terminal Agent Web
-├── Backend (Flask API)
-│   ├── /api/chat - Handle chat requests
-│   ├── /api/stream - Stream responses in real-time
-│   ├── /api/clear - Clear conversation history
-│   └── /api/status - Check API status
-├── Frontend (HTML/JavaScript)
-│   ├── Terminal-like interface
-│   ├── Real-time streaming
-│   └── Responsive design
-└── Core Components
-    ├── LangGraph agent
-    ├── PowerShell process management
-    └── Tool integration
-```
-
-### Project Structure
-```
 Terminal-Agent/
 ├── 🌐 Web Application
 │   ├── app.py                     # Flask application (Gemini)
 │   ├── config.py                  # Configuration management
-│   ├── run.py                     # Startup script
 │   └── requirements.txt           # Dependencies
 │
 ├── 💻 CLI Application
@@ -169,13 +150,18 @@ Terminal-Agent/
 │   └── terminal_controller.py     # PowerShell process management
 │
 ├── 🎨 Frontend Assets
-│   ├── templates/index.html       # Web interface
-│   └── static/
-│       ├── css/terminal.css       # Terminal styling
-│       └── js/terminal.js         # Frontend JavaScript
+│   ├── templates/
+│   │   └── index.html             # Web interface
+│   ├── static/
+│   │   ├── css/terminal.css       # Terminal styling
+│   │   └── js/terminal.js         # Frontend JavaScript
+│   └── terminal-agent-banner.png  # Project banner image
 │
-└── 🔑 Configuration
-    └── .env                       # API key configuration
+└── 🔑 Configuration & Misc
+    ├── .env (required, not present by default; add your API key here)
+    ├── LICENSE.md                 # License file
+    ├── README.md                  # Project documentation
+    └── terminal_agent.log         # Application log file
 ```
 
 ## 🔧 Configuration
