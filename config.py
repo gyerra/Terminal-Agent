@@ -40,6 +40,26 @@ class GeminiConfig:
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
     LOG_FILE = os.getenv('LOG_FILE', 'terminal_agent.log')
 
-def get_gemini_config():
-    """Get Gemini configuration"""
-    return GeminiConfig() 
+class OpenAIConfig:
+    SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-change-this-in-production')
+    DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
+    HOST = os.getenv('HOST', '0.0.0.0')
+    PORT = int(os.getenv('PORT', 5000))
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'your_openai_api_key_here')
+    OPENAI_MODEL = os.getenv('OPENAI_MODEL', 'gpt-4o')
+    RECURSION_LIMIT = int(os.getenv('RECURSION_LIMIT', 35))
+    POWERSHELL_TIMEOUT = int(os.getenv('POWERSHELL_TIMEOUT', 30))
+    ENABLE_CORS = os.getenv('ENABLE_CORS', 'True').lower() == 'true'
+    ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', '*').split(',')
+    TERMINAL_THEME = os.getenv('TERMINAL_THEME', 'dark')
+    MAX_MESSAGE_LENGTH = int(os.getenv('MAX_MESSAGE_LENGTH', 1000))
+    LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
+    LOG_FILE = os.getenv('LOG_FILE', 'terminal_agent.log')
+
+MODEL_PROVIDER = os.getenv('MODEL_PROVIDER', 'gemini').lower()
+
+def get_config():
+    if MODEL_PROVIDER == 'openai':
+        return OpenAIConfig
+    else:
+        return GeminiConfig 

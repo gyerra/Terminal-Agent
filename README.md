@@ -129,7 +129,7 @@ python-dotenv==1.1.0           # Environment variable management
 
 1. **Run the CLI version**
    ```bash
-   python main.py
+   python agent.py
    ```
 
 2. **Enter commands when prompted**
@@ -146,7 +146,7 @@ Terminal-Agent/
 │   └── requirements.txt           # Dependencies
 │
 ├── 💻 CLI Application
-│   ├── main.py                    # CLI version
+│   ├── agent.py                   # CLI version
 │   └── terminal_controller.py     # PowerShell process management
 │
 ├── 🎨 Frontend Assets

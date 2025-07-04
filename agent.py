@@ -7,10 +7,12 @@ from langchain_core.tools import tool
 from terminal_controller import Process
 from langchain_core.messages import BaseMessage
 from langgraph.graph.message import add_messages
-from langchain_google_genai import ChatGoogleGenerativeAI
+from config import get_config
 import os
 
 load_dotenv()
+
+config = get_config()
 
 pw = Process()
 
@@ -29,19 +31,28 @@ def send_command(cmd: str) -> str:
 
 tools = [send_command]
 
-# Initialize Gemini LLM
+# Initialize the LLM based on provider
+llm = None
+model_provider = os.getenv('MODEL_PROVIDER', 'gemini').lower()
 try:
-    gemini_api_key = os.getenv('GEMINI_API_KEY', 'your_gemini_api_key_here')
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
-        google_api_key=gemini_api_key,
-        temperature=0.1,
-        convert_system_message_to_human=True
-    ).bind_tools(tools)
-    print("✅ Gemini LLM initialized successfully")
+    if model_provider == 'openai':
+        from langchain_openai import ChatOpenAI
+        llm = ChatOpenAI(
+            model_name=config.OPENAI_MODEL,
+            api_key=config.OPENAI_API_KEY
+        ).bind_tools(tools)
+        print(f"✅ OpenAI LLM initialized with model: {config.OPENAI_MODEL}")
+    else:
+        from langchain_google_genai import ChatGoogleGenerativeAI
+        llm = ChatGoogleGenerativeAI(
+            model=config.GEMINI_MODEL,
+            google_api_key=config.GEMINI_API_KEY,
+            temperature=0.1,
+            convert_system_message_to_human=True
+        ).bind_tools(tools)
+        print(f"✅ Gemini LLM initialized with model: {config.GEMINI_MODEL}")
 except Exception as e:
-    print(f"❌ Failed to initialize Gemini LLM: {e}")
-    print("💡 Get your free Gemini API key from: https://makersuite.google.com/app/apikey")
+    print(f"❌ Failed to initialize LLM: {e}")
     llm = None
 
 def agent_node(state: AgentState) -> AgentState:
@@ -59,6 +70,7 @@ def agent_node(state: AgentState) -> AgentState:
         - You are a highly intelligent and fast terminal assistant agent.
         - Often times you are able to perform the action correctly but you are thinking you didn't perform it and you are trying to re-do it. Please be mindful of this and act properly.
         - When asked to create a gitignore file, read the contents of the directory and make a suitable desicion to keep what all files and directories in the git repository. See the file extensions to find out which language is being used.
+        - Do not repeat or restate the user's input in your response unless explicitly asked.
         """
     )
     try:
