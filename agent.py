@@ -1,127 +1,117 @@
-from langgraph.graph import StateGraph, START, END
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, ToolMessage
+import os
 from dotenv import load_dotenv
+from langgraph.graph import StateGraph, START, END
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langgraph.prebuilt import ToolNode
 from typing import TypedDict, Sequence, Annotated
 from langchain_core.tools import tool
 from terminal_controller import Process
 from langchain_core.messages import BaseMessage
 from langgraph.graph.message import add_messages
-from config import get_config
-import os
 
 load_dotenv()
 
-config = get_config()
+class AgentState(TypedDict):
+    messages: Annotated[Sequence[BaseMessage], add_messages]
 
 pw = Process()
 
-class AgentState(TypedDict):
-    messages : Annotated[Sequence[BaseMessage],add_messages]
-
 @tool
 def send_command(cmd: str) -> str:
-    """Takes a command string, executes it in the PowerShell session, and returns the output"""
+    """Execute a command in the PowerShell session and return the output"""
     try:
         output = pw.send_command(cmd)
-        return output if output else "No output returned from command."
+       
+        if output:
+            lines = output.splitlines()
+            cleaned_lines = [line for line in lines 
+                           if not line.strip().startswith('<<<<START_MARKER') 
+                           and not line.strip().startswith('<<<<END_MARKER')]
+            cleaned_output = '\n'.join(cleaned_lines).strip()
+            return cleaned_output if cleaned_output else "No output returned from command."
+        return "No output returned from command."
     except Exception as e:
-        error_msg = f"Error executing command '{cmd}': {str(e)}"
-        return error_msg
+        return f"Error executing command '{cmd}': {str(e)}"
 
-tools = [send_command]
-
-# Initialize the LLM based on provider
-llm = None
-model_provider = os.getenv('MODEL_PROVIDER', 'gemini').lower()
-try:
+def get_llm():
+    """Initialize and return the appropriate LLM"""
+    model_provider = os.getenv('MODEL_PROVIDER', 'gemini').lower()
+    
     if model_provider == 'openai':
         from langchain_openai import ChatOpenAI
-        llm = ChatOpenAI(
-            model_name=config.OPENAI_MODEL,
-            api_key=config.OPENAI_API_KEY
-        ).bind_tools(tools)
-        print(f"✅ OpenAI LLM initialized with model: {config.OPENAI_MODEL}")
+        return ChatOpenAI(
+            model=os.getenv('OPENAI_MODEL', 'gpt-4o'),
+            api_key=os.getenv('OPENAI_API_KEY')
+        ).bind_tools([send_command])
     else:
         from langchain_google_genai import ChatGoogleGenerativeAI
-        llm = ChatGoogleGenerativeAI(
-            model=config.GEMINI_MODEL,
-            google_api_key=config.GEMINI_API_KEY,
+        return ChatGoogleGenerativeAI(
+            model=os.getenv('GEMINI_MODEL', 'gemini-2.5-flash'),
+            google_api_key=os.getenv('GEMINI_API_KEY'),
             temperature=0.1,
             convert_system_message_to_human=True
-        ).bind_tools(tools)
-        print(f"✅ Gemini LLM initialized with model: {config.GEMINI_MODEL}")
-except Exception as e:
-    print(f"❌ Failed to initialize LLM: {e}")
-    llm = None
+        ).bind_tools([send_command])
+
+llm = get_llm()
 
 def agent_node(state: AgentState) -> AgentState:
-    """Agent Node"""
-    if not llm:
-        return {
-            "messages": state["messages"] + [AIMessage(content="Error: AI model is not available. Please set your GEMINI_API_KEY in the .env file.")]
-        }
-    
+    """Main agent node that processes user input"""
     system_prompt = SystemMessage(
-        """
-        You are a terminal agent running on a Windows operating system, equipped with PowerShell session creation and command execution tools. Help the user with the best of your ability.
-        - If you are not able to perform anything, automatically retry with an other command until you do it.
-        - Strictly use Latest Powershell commands.
-        - You are a highly intelligent and fast terminal assistant agent.
-        - Often times you are able to perform the action correctly but you are thinking you didn't perform it and you are trying to re-do it. Please be mindful of this and act properly.
-        - When asked to create a gitignore file, read the contents of the directory and make a suitable desicion to keep what all files and directories in the git repository. See the file extensions to find out which language is being used.
-        - Do not repeat or restate the user's input in your response unless explicitly asked.
-        """
+        """You are a terminal agent running on Windows with PowerShell access. 
+        Help users execute commands and tasks efficiently.
+        
+        Guidelines:
+        - Use modern PowerShell commands
+        - Retry with alternative commands if something fails
+        - Don't repeat user input unless explicitly asked
+        - For .gitignore files, analyze directory contents to make smart decisions
+        - Be concise and helpful"""
     )
+    
     try:
         response = llm.invoke([system_prompt] + state["messages"])
-        return {"messages": [response] + state["messages"]}
+        return {"messages": [response]}
     except Exception as e:
-        print(f"Error in agent_node: {e}")
-        return {
-            "messages": state["messages"] + [AIMessage(content=f"Error processing request: {str(e)}")]
-        }
+        return {"messages": [AIMessage(content=f"Error: {str(e)}")]}
 
 def should_continue(state: AgentState) -> str:
-    """Simple decider that only checks for tool calls"""
-    messages_dict = state["messages"]
-    last_message = messages_dict[-1]
-    if not last_message.tool_calls:
-        return "end"
-    else: 
-        return "continue"
+    """Determine if we should continue with tool calls"""
+    last_message = state["messages"][-1]
+    return "continue" if last_message.tool_calls else "end"
 
 graph = StateGraph(AgentState)
-tool_node = ToolNode(tools=tools)
-graph.add_node("tool_node",tool_node)
-graph.add_node("agent_node",agent_node)
-graph.add_edge(START,"agent_node")
-graph.add_edge("tool_node","agent_node")
-graph.add_conditional_edges(
-    "agent_node",
-    should_continue,
-    {
-        "continue": "tool_node",
-        "end": END,
-        "": "tool_node"
-    }
-)
+graph.add_node("agent", agent_node)
+graph.add_node("tools", ToolNode([send_command]))
+graph.add_edge(START, "agent")
+graph.add_edge("tools", "agent")
+graph.add_conditional_edges("agent", should_continue, {"continue": "tools", "end": END})
+
 agent = graph.compile()
 
-conversation_history = []
-user_input = input("Command: ")
-while user_input != "exit":
-    conversation_history.append(HumanMessage(content=user_input))
-    inputs = {"messages": conversation_history}
+def run_cli():
+    """Run the CLI version of the agent"""
+    print("🚀 Terminal Agent CLI")
+    print("Type 'exit' to quit\n")
     
-    for chunk in agent.stream(inputs, {"recursion_limit": 35}, stream_mode="values"):
-        message = chunk["messages"][-1]
-        if isinstance(message, tuple):
-            print(message)
-        else:
-            message.pretty_print()
+    conversation_history = []
     
-    final_result = agent.invoke(inputs)
-    conversation_history = final_result["messages"]
-    
-    user_input = input("Command: ")
+    while True:
+        user_input = input("Command: ")
+        if user_input.lower() == "exit":
+            break
+            
+        conversation_history.append(HumanMessage(content=user_input))
+        inputs = {"messages": conversation_history}
+        
+        for chunk in agent.stream(inputs, {"recursion_limit": 35}, stream_mode="values"):
+            message = chunk["messages"][-1]
+            if hasattr(message, 'pretty_print'):
+                message.pretty_print()
+            else:
+                print(message)
+        
+        final_result = agent.invoke(inputs, {"recursion_limit": 35})
+        conversation_history = final_result["messages"]
+
+if __name__ == "__main__":
+    run_cli()

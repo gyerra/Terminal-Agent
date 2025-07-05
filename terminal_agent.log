@@ -609,3 +609,5 @@ PS D:\Github\Terminal-Agent> Write-Output "
   seconds: 28
 }
 ]
+2025-07-04 11:36:47,508 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:36:47] "GET /api/status HTTP/1.1" 200 -
+2025-07-04 11:36:47,749 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:36:47] "GET /api/status HTTP/1.1" 200 -
