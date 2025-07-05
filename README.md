@@ -87,7 +87,7 @@ python-dotenv==1.1.0           # Environment variable management
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/sriram-dev-9/Terminal-Agent.git
+   git clone https://github.com/gyerra/Terminal-Agent.git
    cd Terminal-Agent
    ```
 
