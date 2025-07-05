@@ -13,7 +13,7 @@ A powerful Terminal Agent built with Python, LangGraph, and LangChain, designed 
 | **Web Framework** | Flask | 3.0.0 | Lightweight web server and API |
 | **AI Framework** | LangGraph | 0.5.0 | Agent orchestration and workflow |
 | **AI Integration** | LangChain | 0.3.63 | LLM integration and tool binding |
-| **AI Model** | Google Gemini | 1.5 Flash | Natural language processing (FREE!) |
+| **AI Model** | Google Gemini | 2.5 | Natural language processing (FREE!) |
 | **Frontend** | HTML5/CSS3/JavaScript | - | Modern web interface |
 | **System Integration** | PowerShell | - | Windows command execution |
 | **Development** | Python-dotenv | 1.1.0 | Environment management |
@@ -68,7 +68,7 @@ python-dotenv==1.1.0           # Environment variable management
 - **Security**: Manage system security tools and check for vulnerabilities
 
 ### Web Interface Features
-- 🤖 **AI-Powered Terminal Assistant**: Uses LangGraph and Google Gemini (FREE!)
+- 🤖 **AI-Powered Terminal Assistant**: Uses LangGraph and Google Gemini 2.5 (FREE!)
 - 💻 **PowerShell Integration**: Direct PowerShell command execution through the web interface
 - 🌐 **Modern Web UI**: Beautiful, responsive terminal-like interface
 - 🔄 **Real-time Streaming**: Live streaming of AI responses and command outputs
@@ -114,7 +114,7 @@ python-dotenv==1.1.0           # Environment variable management
 
 1. **Start the web server**
    ```bash
-   python run.py
+   python app.py
    ```
 
 2. **Open your browser**
@@ -141,8 +141,7 @@ python-dotenv==1.1.0           # Environment variable management
 ```
 Terminal-Agent/
 ├── 🌐 Web Application
-│   ├── app.py                     # Flask application (Gemini)
-│   ├── config.py                  # Configuration management
+│   ├── app.py                     # Flask application (Gemini 2.5)
 │   └── requirements.txt           # Dependencies
 │
 ├── 💻 CLI Application
@@ -171,7 +170,7 @@ Terminal-Agent/
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `GEMINI_API_KEY` | Google Gemini API key (FREE!) | Required |
-| `GEMINI_MODEL` | Gemini model to use | `gemini-1.5-flash` |
+| `GEMINI_MODEL` | Gemini model to use | `gemini-2.5` |
 | `DEBUG` | Enable debug mode | `True` |
 | `HOST` | Server host | `0.0.0.0` |
 | `PORT` | Server port | `5000` |
@@ -209,7 +208,7 @@ While the Terminal Agent is configured for Windows with PowerShell by default, i
 
 ## 🔄 Using Different AI Models
 
-The Terminal Agent is configured to use Google Gemini by default (FREE!), but you can easily switch to other providers:
+The Terminal Agent is configured to use Google Gemini 2.5 by default (FREE!), but you can easily switch to other providers:
 
 ### OpenAI
 ```python
@@ -218,16 +217,6 @@ from langchain_openai import ChatOpenAI
 llm = ChatOpenAI(
     model_name="gpt-4o-mini",
     api_key="your-openai-key"
-).bind_tools(tools)
-```
-
-### Anthropic Claude
-```python
-from langchain_anthropic import ChatAnthropic
-
-llm = ChatAnthropic(
-    model_name="claude-3-sonnet-20240229",
-    anthropic_api_key="your-anthropic-key"
 ).bind_tools(tools)
 ```
 
@@ -265,7 +254,7 @@ curl -X POST http://localhost:5000/api/stream \
 
 ### Local Development
 ```bash
-python run.py
+python app.py
 ```
 
 ### Production
@@ -285,7 +274,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ##  Acknowledgments
 
 - Built with LangGraph and LangChain
-- Powered by Google Gemini (FREE!)
+- Powered by Google Gemini 2.5 (FREE!)
 - Inspired by the need for efficient terminal automation across operating systems
 
 ##  Support
